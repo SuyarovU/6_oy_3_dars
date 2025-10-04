@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}  
+    <link rel="stylesheet" href="{% static 'blog/style.css'%}"> 
+{% endblock head %}
+{% block title %} Base page {% endblock title %}
+{% block content %}
+<div class="post_header">
+    <h2>So'ngi maqolalar</h2>
+    <p>Web developmentga oid maqolalar</p>
+</div>
+<div class="posts">
+    {% for post in posts %}
+        <div class="post">
+            <h3>{{post.title}}</h3>
+            <p class="post_sana">{{post.date}}</p>
+            <p>{{post.content}}</p>
+        </div>
+    {% empty %}
+        <p> Postlar mavjud emas! </p>
+    {% endfor %}
+</div>
+{% endblock content %}
